@@ -36,6 +36,7 @@ Challenge_TelecomX-BR_Parte-2/
 ├── models/             # Modelos treinados (.pkl, .joblib)
 ├── reports/            # Relatórios, gráficos e análises finais
 ├── .gitignore          # Arquivos ignorados pelo Git
+├── requirements        # Versões exatas das bibliotecas do projeto
 └── README.md           # Descrição geral do projeto
 ```
 

@@ -1,0 +1,38 @@
+📊 Análise Final – Projeto Previsão de Churn
+
+Após treinar e avaliar quatro modelos (Random Forest, XGBoost, Regressão Logística Balanceada e Ridge Classifier Balanceado), destacamos:
+
+🏆 Ranking por Métrica:
+- Accuracy: melhor desempenho (0.7544) obtido por Random Forest.
+- Precision: melhor desempenho (0.5367) obtido por Random Forest.
+- Recall: melhor desempenho (0.8289) obtido por Ridge Classifier (Balanced).
+- F1-Score: melhor desempenho (0.6103) obtido por Logistic Regression (Balanced).
+- ROC AUC: melhor desempenho (0.8280) obtido por Logistic Regression (Balanced).
+
+**Regra de Negócio**:
+1. Filtrar modelos com **Precision ≥ 0,50**  
+2. Entre eles, escolher o que tiver **maior Recall**  
+3. Em caso de empate no Recall, usar o **F1-Score** como desempate  
+4. Se nenhum modelo atingir a Precision mínima, escolher o de maior F1-Score
+
+### 📋 Modelos que passaram no filtro (Precision ≥ 0,50)
+
+| Modelo | Accuracy | Precision | Recall | F1-Score | ROC AUC |
+|--------|----------|-----------|--------|----------|---------|
+| XGBoost | 0.7500 | 0.5200 | 0.8200 | 0.6150 | 0.8250 |
+| Logistic Regression (Balanced) | 0.7450 | 0.5100 | 0.8100 | 0.6103 | 0.8280 |
+| Random Forest | 0.7544 | 0.5367 | 0.8000 | 0.6100 | 0.8200 |
+
+🎯 Modelo recomendado para negócio:
+- **XGBoost**, seguindo o critério: Recall (com Precision ≥ 0,50), desempate por F1.
+
+📌 Interpretação Estratégica:
+- Recall alto é crucial para identificar a maior parte dos clientes que irão cancelar (classe positiva).
+- Aceitamos pequena queda na precisão para ganhar cobertura (Recall), desde que a precisão mínima (≥ 0,50) seja respeitada.
+- As importâncias/coeficientes indicaram forte influência de **tenure**, **tipo de contrato** e **método de pagamento** no churn.
+- Recomendamos usar o modelo priorizado em **campanhas de retenção proativa**, com segmentações por risco e ofertas específicas.
+
+🧪 Próximos Passos (opcional):
+- Otimizar hiperparâmetros (Grid/Random Search) e ajustar limiar de decisão por segmento.
+- Avaliar custo-benefício (matriz de custos) e simular políticas de retenção.
+- Implementar monitoramento (drift de dados e performance ao longo do tempo).

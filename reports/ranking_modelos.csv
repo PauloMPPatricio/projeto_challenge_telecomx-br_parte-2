@@ -1,0 +1,6 @@
+,Melhor Valor,Melhor(es) Modelo(s)
+Accuracy,0.7544,['Random Forest']
+Precision,0.5367,['Random Forest']
+Recall,0.8289,['Ridge Classifier (Balanced)']
+F1-Score,0.6103,['Logistic Regression (Balanced)']
+ROC AUC,0.828,['Logistic Regression (Balanced)']
